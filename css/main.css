@@ -1,0 +1,32 @@
+.post {
+  border: solid 1px #e7e7e7;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+img {
+  width: 100%;
+  margin: 10px;
+  border: solid 1px #e7e7e7;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+}
+
+.about-post {
+  border-top: solid 1px #ccc;
+  padding-top: 10px;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+#commentName, #comment {
+  margin: 10px;
+}
