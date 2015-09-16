@@ -50,5 +50,6 @@ redditCloneApp.run(function(amMoment) {
     amMoment.changeLocale('en');
 });
 
-// + submit
+// get sortby drop down working
+// organize files, whats needed and whats not
 
