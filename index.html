@@ -32,9 +32,9 @@
             <li class="dropdown" dropdown is-open="status.isopen">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" dropdown-toggle>Sort by <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu" aria-labelledby="btn-append-to-body">
-                <li><a href="#">Votes</a></li>
-                <li><a href="#">Date</a></li>
-                <li><a href="#">Title</a></li>
+                <li><a ng-click="order('votes')">Votes</a></li>
+                <li><a ng-click="order('time')">Date</a></li>
+                <li><a ng-click="order('title')">Title</a></li>
               </ul>
             </li>
           </ul>
@@ -69,7 +69,7 @@
       </div>
 
       <div>
-        <div class="row post" ng-repeat="post in posts | filter:searchText">
+        <div class="row post" ng-repeat="post in posts | filter:searchText | orderBy:predicate:reverse">
 
           <div class="col-md-2 img-div"><img ng-src="{{post.picture}}"></div>
 

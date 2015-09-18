@@ -1,10 +1,10 @@
 var redditCloneApp = angular.module("redditCloneApp", ['ui.bootstrap', 'angularMoment']); 
 redditCloneApp.controller("PostController", function($scope){
   
-  $scope.posts = [{'name': 'tom', 'title': 'Corn', 'picture': 'http://hdwallpapersfit.com/wp-content/uploads/2015/03/scenic-hd-wallpapers.jpg', 'textarea': 'I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese!', 'time': '9/15/15', 'comments': [], 'votes': 2},
-    {'name': 'bob', 'title': 'broccoli', 'picture': 'http://hdwallpapersfit.com/wp-content/uploads/2015/03/scenic-wallpaper.jpg', 'textarea': 'I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese!', 'time': '9/14/15 13:23', 'comments': [{'commentName': 'john', 'comment': 'I love cheese!'}, {'commentName': 'john', 'comment': 'I love cheese!'}], 'votes': 0},
-    {'name': 'Jane', 'title': 'Cucumber', 'picture': 'http://www.free-wallpapers.net/wp-content/uploads/2015/07/Scenic-Wallpaper-Backgrounds.jpg', 'textarea': 'I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese!', 'time': '1/2/1991', 'comments': [{'commentName': 'john', 'comment': 'I love cheeses!'}], 'votes': 5},
-    {'name': 'Riccardo', 'title': 'Tomato', 'picture': 'http://desktopbackgrounds4u.com/wp-content/gallery/free-scenic-pictures/7.jpg', 'textarea': 'I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese!', 'time': '1/2/50', 'comments': [{'commentName': 'john', 'comment': 'I love cheese!'}, {'commentName': 'john','comment': 'I love cheese!'}, {'commentName': 'john', 'comment': 'I love cheese!'}], 'votes': -5}
+  $scope.posts = [{'name': 'tom', 'title': 'Corn', 'picture': 'http://hdwallpapersfit.com/wp-content/uploads/2015/03/scenic-hd-wallpapers.jpg', 'textarea': 'I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese!', 'time': 1442541199000, 'comments': [], 'votes': 2},
+    {'name': 'bob', 'title': 'broccoli', 'picture': 'http://hdwallpapersfit.com/wp-content/uploads/2015/03/scenic-wallpaper.jpg', 'textarea': 'I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese!', 'time': 1442283814000, 'comments': [{'commentName': 'john', 'comment': 'I love cheese!'}, {'commentName': 'john', 'comment': 'I love cheese!'}], 'votes': 0},
+    {'name': 'Jane', 'title': 'Cucumber', 'picture': 'http://www.free-wallpapers.net/wp-content/uploads/2015/07/Scenic-Wallpaper-Backgrounds.jpg', 'textarea': 'I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese!', 'time': 635307814000, 'comments': [{'commentName': 'john', 'comment': 'I love cheeses!'}], 'votes': 5},
+    {'name': 'Riccardo', 'title': 'Tomato', 'picture': 'http://desktopbackgrounds4u.com/wp-content/gallery/free-scenic-pictures/7.jpg', 'textarea': 'I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese! I love cheese!', 'time': -619308753000, 'comments': [{'commentName': 'john', 'comment': 'I love cheese!'}, {'commentName': 'john','comment': 'I love cheese!'}, {'commentName': 'john', 'comment': 'I love cheese!'}], 'votes': -5}
   ];
 
   $scope.name = "";
@@ -44,6 +44,14 @@ redditCloneApp.controller("PostController", function($scope){
     this.showComments = true;
     this.commentName  = this.comment = "";
   };
+
+  $scope.predicate = 'votes';
+  $scope.reverse = true;
+  $scope.order = function(predicate) {
+    $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+    $scope.predicate = predicate;
+  };
+
 });
 
 redditCloneApp.run(function(amMoment) {
